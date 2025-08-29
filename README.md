@@ -1,59 +1,153 @@
-# AngularAssessment1
+# Angular Student Portal
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.1.
+A modern student management application built with Angular 18+ and PrimeNG UI components. This application allows users to register new students and manage existing student records with full CRUD operations.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- **Student Registration**: Add new students with form validation
+- **Student Management**: View, edit, and delete student records
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- **Data Validation**: Comprehensive form validation with error messages
+- **Modern UI**: Clean interface built with PrimeNG components
+- **Local Storage**: Persistent data storage using browser localStorage
+
+## Technologies Used
+
+- **Angular 18+** - Frontend framework
+- **PrimeNG** - UI component library
+- **TypeScript** - Programming language
+- **Reactive Forms** - Form handling and validation
+- **Angular Router** - Client-side routing
+- **CSS3** - Styling and responsive design
+
+## Prerequisites
+
+Before running this application, make sure you have:
+
+- Node.js (version 18 or higher)
+- npm (Node Package Manager)
+- Angular CLI (`npm install -g @angular/cli`)
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/Adrin-Bershik-C-J/Angular-StudentPortal-Assignment.git
+```
+
+2. Navigate to the project directory:
+```bash
+cd Angular-StudentPortal-Assignment
+```
+
+3. Install dependencies:
+```bash
+npm install
+```
+
+## Running the Application
+
+Start the development server:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Navigate to `http://localhost:4200/` in your browser. The application will automatically reload if you change any source files.
 
-## Code scaffolding
+## Application Structure
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+src/
+├── app/
+│   ├── register/          # Student registration component
+│   ├── students/          # Student list and management component
+│   ├── app.ts            # Root component
+│   ├── app.routes.ts     # Application routing
+│   └── app.config.ts     # Application configuration
+├── styles.css            # Global styles
+└── index.html           # Main HTML file
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Features Overview
 
-```bash
-ng generate --help
-```
+### Student Registration
+- **Form Fields**: Name, Email, Age, Department
+- **Validation Rules**:
+  - Name: Required, minimum 3 characters
+  - Email: Required, valid email format
+  - Age: Required, between 16-45 years
+  - Department: Required selection from dropdown
+- **Department Options**: Computer Science, Electronics, Mechanical
 
-## Building
+### Student Management
+- **View Students**: Sortable table with pagination (10 records per page)
+- **Edit Students**: In-place editing with validation
+- **Delete Students**: Confirmation dialog before deletion
+- **Responsive Table**: Adapts to different screen sizes
 
-To build the project run:
+## Data Storage
+
+The application uses browser localStorage to persist student data. Data is automatically saved when:
+- New students are registered
+- Existing student records are updated
+- Students are deleted
+
+## Build
+
+Run the build command to create a production build:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Testing
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Run unit tests:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Run end-to-end tests:
 
 ```bash
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Code Quality
 
-## Additional Resources
+Run linting:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+ng lint
+```
+
+## Browser Support
+
+This application supports all modern browsers including:
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
+5. Create a Pull Request
+
+## Author
+
+**Adrin Bershik C J**
+- GitHub: [@Adrin-Bershik-C-J](https://github.com/Adrin-Bershik-C-J)
+
+## Acknowledgments
+
+- Built with Angular framework
+- UI components provided by PrimeNG
+- Icons from PrimeIcons library
