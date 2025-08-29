@@ -1,0 +1,34 @@
+.error {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.ng-invalid.ng-touched {
+  border-color: #dc3545 !important;
+}
+
+.no-students {
+  text-align: center;
+  padding: 2rem;
+  color: #6c757d;
+}
+
+.no-students a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.no-students a:hover {
+  text-decoration: underline;
+}
+
+.p-button-sm {
+  margin-right: 0.5rem;
+}
+
+.p-dialog .p-dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}

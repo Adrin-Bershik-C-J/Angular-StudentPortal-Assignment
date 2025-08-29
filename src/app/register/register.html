@@ -1,33 +1,123 @@
 <div class="form-container">
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label>Name</label>
-      <input pInputText formControlName="name" />
-      <small class="error" *ngIf="f.name.touched && f.name.errors?.['required']">Name is required</small>
-      <small class="error" *ngIf="f.name.errors?.['minlength']">Min 3 characters</small>
+  <h2>Student Registration</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="p-fluid">
+    <div class="p-field">
+      <label for="name">Name *</label>
+      <input
+        id="name"
+        pInputText
+        formControlName="name"
+        placeholder="Enter student name"
+        [class.ng-invalid]="
+          registerForm.get('name')?.invalid && registerForm.get('name')?.touched
+        "
+      />
+      <small
+        class="error"
+        *ngIf="
+          registerForm.get('name')?.invalid && registerForm.get('name')?.touched
+        "
+      >
+        <span *ngIf="registerForm.get('name')?.errors?.['required']"
+          >Name is required</span
+        >
+        <span *ngIf="registerForm.get('name')?.errors?.['minlength']"
+          >Name must be at least 3 characters</span
+        >
+      </small>
     </div>
 
-    <div>
-      <label>Email</label>
-      <input pInputText formControlName="email" />
-      <small class="error" *ngIf="f.email.errors?.['required']">Email is required</small>
-      <small class="error" *ngIf="f.email.errors?.['email']">Invalid email</small>
+    <div class="p-field">
+      <label for="email">Email *</label>
+      <input
+        id="email"
+        pInputText
+        formControlName="email"
+        placeholder="Enter email address"
+        [class.ng-invalid]="
+          registerForm.get('email')?.invalid &&
+          registerForm.get('email')?.touched
+        "
+      />
+      <small
+        class="error"
+        *ngIf="
+          registerForm.get('email')?.invalid &&
+          registerForm.get('email')?.touched
+        "
+      >
+        <span *ngIf="registerForm.get('email')?.errors?.['required']"
+          >Email is required</span
+        >
+        <span *ngIf="registerForm.get('email')?.errors?.['email']"
+          >Please enter a valid email address</span
+        >
+      </small>
     </div>
 
-    <div>
-      <label>Age</label>
-      <input type="number" pInputText formControlName="age" />
-      <small class="error" *ngIf="f.age.errors?.['required']">Age is required</small>
-      <small class="error" *ngIf="f.age.errors?.['min']">Min 16</small>
-      <small class="error" *ngIf="f.age.errors?.['max']">Max 45</small>
+    <div class="p-field">
+      <label for="age">Age *</label>
+      <input
+        id="age"
+        type="number"
+        pInputText
+        formControlName="age"
+        placeholder="Enter age (16-45)"
+        [class.ng-invalid]="
+          registerForm.get('age')?.invalid && registerForm.get('age')?.touched
+        "
+      />
+      <small
+        class="error"
+        *ngIf="
+          registerForm.get('age')?.invalid && registerForm.get('age')?.touched
+        "
+      >
+        <span *ngIf="registerForm.get('age')?.errors?.['required']"
+          >Age is required</span
+        >
+        <span *ngIf="registerForm.get('age')?.errors?.['min']"
+          >Age must be at least 16</span
+        >
+        <span *ngIf="registerForm.get('age')?.errors?.['max']"
+          >Age cannot exceed 45</span
+        >
+      </small>
     </div>
 
-    <div>
-      <label>Department</label>
-      <p-dropdown [options]="departments" formControlName="department" placeholder="Select Dept"></p-dropdown>
-      <small class="error" *ngIf="f.department.errors?.['required']">Department required</small>
+    <div class="p-field">
+      <label for="department">Department *</label>
+      <p-dropdown
+        id="department"
+        [options]="departments"
+        formControlName="department"
+        placeholder="Select Department"
+        optionLabel="label"
+        optionValue="value"
+        [class.ng-invalid]="
+          registerForm.get('department')?.invalid &&
+          registerForm.get('department')?.touched
+        "
+      ></p-dropdown>
+      <small
+        class="error"
+        *ngIf="
+          registerForm.get('department')?.invalid &&
+          registerForm.get('department')?.touched
+        "
+      >
+        <span *ngIf="registerForm.get('department')?.errors?.['required']"
+          >Please select a department</span
+        >
+      </small>
     </div>
 
-    <button pButton type="submit" label="Register" [disabled]="registerForm.invalid"></button>
+    <button
+      pButton
+      type="submit"
+      label="Register Student"
+      [disabled]="registerForm.invalid"
+      class="p-button-primary"
+    ></button>
   </form>
 </div>
