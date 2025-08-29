@@ -1,0 +1,42 @@
+<p-table [value]="students" selectionMode="single" (onRowSelect)="onRowSelect($event.data)">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Age</th>
+      <th>Department</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-student>
+    <tr [pSelectableRow]="student">
+      <td>{{ student.name }}</td>
+      <td>{{ student.email }}</td>
+      <td>{{ student.age }}</td>
+      <td>{{ student.department }}</td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog header="Edit Student" [(visible)]="displayDialog" [modal]="true">
+  <form [formGroup]="editForm">
+    <div>
+      <label>Name</label>
+      <input pInputText formControlName="name" />
+    </div>
+    <div>
+      <label>Email</label>
+      <input pInputText formControlName="email" />
+    </div>
+    <div>
+      <label>Age</label>
+      <input type="number" pInputText formControlName="age" />
+    </div>
+    <div>
+      <label>Department</label>
+      <p-dropdown [options]="['Computer Science','Mechanical','Electrical','Civil']" formControlName="department"></p-dropdown>
+    </div>
+    <p-footer>
+      <button pButton type="button" label="Save" (click)="saveEdit()" [disabled]="editForm.invalid"></button>
+    </p-footer>
+  </form>
+</p-dialog>
